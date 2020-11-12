@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import type { NextPage } from 'next'
 
-import { getAllProducts, Products } from '~lib/api'
+import { getAllProducts, Products } from '@/lib/api'
+import { Jumbotron } from '@/components/home'
 
 const Home: NextPage = () => {
   // const [products, setProducts] = useState<Products[]>([])
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Home</h1>
+      <Jumbotron />
     </>
   )
 }

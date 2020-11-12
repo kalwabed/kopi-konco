@@ -1,8 +1,9 @@
 export default {
+  title: 'kopi konco',
   routes: [
     { url: '/', title: 'home' },
     { url: '/about', title: 'about' },
-    { url: '/products', title: 'products' },
-    { url: '/posts', title: 'blog' }
+    { url: '/#', title: 'products' },
+    { url: '/#', title: 'blog' }
   ]
 }

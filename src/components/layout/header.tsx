@@ -5,7 +5,6 @@ import {
   useColorMode,
   Flex,
   IconButton,
-  Button,
   Drawer,
   useDisclosure,
   DrawerOverlay,
@@ -22,6 +21,7 @@ import { CgMenu } from 'react-icons/cg'
 import { useRef, useState } from 'react'
 
 import siteConfig from 'site-config'
+
 const color = { dark: 'white', light: 'black' }
 
 const Header = () => {
@@ -33,10 +33,11 @@ const Header = () => {
       borderColor="gray.300"
       as="header"
       mx={[0, 8]}
-      mb="5"
+      mb={[0, 5]}
+      mt={[0, 2]}
       px={['2', '5']}
       pt="2"
-      spacing={8}
+      spacing={6}
       bg={colorMode === 'dark' ? 'dark' : 'white'}
       color={color[colorMode]}
     >
@@ -57,7 +58,7 @@ const NavBar = ({ colorMode, toggle }) => {
   return (
     <Flex px={[0, 5]} wrap={['wrap', 'nowrap']} mx={[0, 8]} as="nav" align="center" justify="space-between">
       <Flex align="center">
-        <NavLink title="kopi desa" fontSize="2xl" fontWeight="bold" />
+        <NavLink title={siteConfig.title} fontSize="2xl" fontWeight="bold" />
       </Flex>
 
       <Menu colorMode={colorMode} toggle={toggle} />
