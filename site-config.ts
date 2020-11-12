@@ -1,5 +1,5 @@
 export default {
-  title: 'kopi konco',
+  title: 'Kopi Konco',
   routes: [
     { url: '/', title: 'home' },
     { url: '/about', title: 'about' },

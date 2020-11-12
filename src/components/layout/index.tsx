@@ -1,11 +1,12 @@
-import { Stack, useColorMode, useTheme } from '@chakra-ui/core'
+import { Stack, useColorMode } from '@chakra-ui/core'
+
+import { theme } from '@/utils'
 import Header from './header'
 
 const Layout = ({ children }) => {
   const { colorMode } = useColorMode()
-  const { colors } = useTheme()
 
-  const color = { dark: 'white', light: 'black' }
+  const color = { dark: 'white', light: theme.colors.dark }
   return (
     <>
       <Header />
@@ -14,7 +15,12 @@ const Layout = ({ children }) => {
       </Stack>
       <style jsx global>{`
         body {
-          background-color: ${colorMode === 'dark' ? colors.black : 'white'};
+          background-color: ${colorMode === 'dark' ? theme.colors.dark : 'white'};
+          color: ${colorMode === 'dark' ? 'white' : theme.colors.dark};
+        }
+        *::selection {
+          background-color: ${theme.colors.info};
+          color: ${theme.colors.dark};
         }
       `}</style>
     </>

@@ -20,9 +20,10 @@ import Nextlink from 'next/link'
 import { CgMenu } from 'react-icons/cg'
 import { useRef, useState } from 'react'
 
+import { theme } from '@/utils'
 import siteConfig from 'site-config'
 
-const color = { dark: 'white', light: 'black' }
+const color = { dark: 'white', light: theme.colors.dark }
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -32,11 +33,8 @@ const Header = () => {
       borderBottom={['1px', '0']}
       borderColor="gray.300"
       as="header"
-      mx={[0, 8]}
-      mb={[0, 5]}
-      mt={[0, 2]}
       px={['2', '5']}
-      pt="2"
+      py="3"
       spacing={6}
       bg={colorMode === 'dark' ? 'dark' : 'white'}
       color={color[colorMode]}

@@ -3,7 +3,7 @@ import Head from 'next/head'
 import type { NextPage } from 'next'
 
 import { getAllProducts, Products } from '@/lib/api'
-import { Jumbotron } from '@/components/home'
+import { Hero, Jumbotron } from '@/components/home'
 
 const Home: NextPage = () => {
   // const [products, setProducts] = useState<Products[]>([])
@@ -23,6 +23,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Jumbotron />
+      <Hero />
     </>
   )
 }

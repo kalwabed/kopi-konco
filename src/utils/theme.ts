@@ -1,8 +1,8 @@
 import { theme as baseTheme } from '@chakra-ui/core'
 
 const customColors = {
-  dark: '#00171f',
-  info: '#89f7fe',
+  dark: '#212529',
+  info: '#81f6fe',
   primary: {
     50: '#ebf4fa',
     100: '#d1dbe0',
