@@ -1,8 +1,10 @@
-import { Box, useColorMode } from '@chakra-ui/core'
+import { Box, useColorMode, useTheme } from '@chakra-ui/core'
 import Header from './header'
 
 const Layout = ({ children }) => {
   const { colorMode } = useColorMode()
+  const { colors } = useTheme()
+
   const color = { dark: 'white', light: 'black' }
   return (
     <>
@@ -12,7 +14,7 @@ const Layout = ({ children }) => {
       </Box>
       <style jsx global>{`
         body {
-          background-color: ${colorMode === 'dark' ? '#00171f' : 'white'};
+          background-color: ${colorMode === 'dark' ? colors.black : 'white'};
         }
       `}</style>
     </>

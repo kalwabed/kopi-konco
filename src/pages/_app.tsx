@@ -1,11 +1,14 @@
 import type { AppProps } from 'next/app'
 
 import { AppProvider } from '~components/helpers'
+import Layout from '~components/layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AppProvider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </AppProvider>
   )
 }

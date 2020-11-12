@@ -28,28 +28,26 @@ const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
-    <>
-      <Stack
-        borderBottom={['1px', '0']}
-        borderColor="gray.300"
-        as="header"
-        mx={[0, 8]}
-        mb="5"
-        px={['2', '5']}
-        pt="2"
-        spacing={8}
-        bg={colorMode === 'dark' ? 'dark' : 'white'}
-        color={color[colorMode]}
-      >
-        <NavBar colorMode={colorMode} toggle={toggleColorMode} />
-      </Stack>
-    </>
+    <Stack
+      borderBottom={['1px', '0']}
+      borderColor="gray.300"
+      as="header"
+      mx={[0, 8]}
+      mb="5"
+      px={['2', '5']}
+      pt="2"
+      spacing={8}
+      bg={colorMode === 'dark' ? 'dark' : 'white'}
+      color={color[colorMode]}
+    >
+      <NavBar colorMode={colorMode} toggle={toggleColorMode} />
+    </Stack>
   )
 }
 
 const NavLink = ({ title = '', href = '/', ...rest }) => (
   <Nextlink href={href}>
-    <Link fontSize="lg" href={href} p={5} _hover={{ textDecor: 'underline', color: 'gray.500' }} {...rest}>
+    <Link fontSize="lg" href={href} p={5} _hover={{ color: 'gray.500' }} {...rest}>
       {title}
     </Link>
   </Nextlink>
@@ -60,26 +58,28 @@ const NavBar = ({ colorMode, toggle }) => {
     <Flex px={[0, 5]} wrap={['wrap', 'nowrap']} mx={[0, 8]} as="nav" align="center" justify="space-between">
       <Flex align="center">
         <NavLink title="kopi desa" fontSize="2xl" fontWeight="bold" />
-        <IconButton
-          ml={[0, 3]}
-          icon={colorMode === 'light' ? 'moon' : 'sun'}
-          aria-label="Theme provider"
-          onClick={toggle}
-        />
       </Flex>
-      <Menu colorMode={colorMode} />
+
+      <Menu colorMode={colorMode} toggle={toggle} />
+
       <Box d={['none', 'block']}>
         <Flex align="center">
           {siteConfig.routes.map(({ title, url }) => (
             <NavLink href={url} title={title} key={title} />
           ))}
+          <IconButton
+            ml={[0, 3]}
+            icon={colorMode === 'light' ? 'moon' : 'sun'}
+            aria-label="Theme provider"
+            onClick={toggle}
+          />
         </Flex>
       </Box>
     </Flex>
   )
 }
 
-const Menu = ({ colorMode }) => {
+const Menu = ({ colorMode, toggle }) => {
   const { onClose, isOpen, onOpen } = useDisclosure()
 
   const btnRef = useRef()
@@ -91,7 +91,14 @@ const Menu = ({ colorMode }) => {
         <DrawerOverlay />
         <DrawerContent color={color[colorMode]}>
           <DrawerCloseButton />
-          <DrawerHeader>Menu</DrawerHeader>
+          <DrawerHeader>
+            <IconButton
+              ml={[0, 3]}
+              icon={colorMode === 'light' ? 'moon' : 'sun'}
+              aria-label="Theme provider"
+              onClick={toggle}
+            />
+          </DrawerHeader>
 
           <DrawerBody>
             <List>
