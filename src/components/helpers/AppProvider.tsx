@@ -1,6 +1,6 @@
 import { CSSReset, ColorModeProvider, ThemeProvider } from '@chakra-ui/core'
-import { CacheProvider } from '@emotion/core'
-import { cache } from 'emotion'
+import { CacheProvider } from '@emotion/react'
+import { cache } from '@emotion/css'
 
 import theme from '~utils/theme'
 
