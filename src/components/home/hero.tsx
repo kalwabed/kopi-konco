@@ -1,4 +1,4 @@
-import { Box, SimpleGrid, Image, Stack, Text, Heading, Flex, Button } from '@chakra-ui/core'
+import { Box, SimpleGrid, Image, Stack, Text, Heading, Button } from '@chakra-ui/react'
 import { ChakraNextLink } from '../helpers'
 
 const Hero = () => {
@@ -22,7 +22,7 @@ const Hero = () => {
             komunitas-komunitas pencinta kopi yang sudah dipercaya di banyak kafe besar lainnya.
           </Text>
           <ChakraNextLink href="/">
-            <Button mt="6" variantColor="primary" _hover={{ bg: 'gray.700', color: 'white' }}>
+            <Button mt="6" colorScheme="primary" _hover={{ bg: 'gray.700', color: 'white' }}>
               Pesan sekarang!
             </Button>
           </ChakraNextLink>

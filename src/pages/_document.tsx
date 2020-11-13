@@ -1,5 +1,6 @@
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
 import { extractCritical } from '@emotion/server'
+import { ColorModeScript } from '@chakra-ui/react'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -28,6 +29,7 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
+          <ColorModeScript />
           <Main />
           <NextScript />
         </body>
