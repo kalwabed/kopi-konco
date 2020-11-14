@@ -3,7 +3,7 @@ export default {
   routes: [
     { url: '/', title: 'home' },
     { url: '/about', title: 'about' },
-    { url: '/#', title: 'products' },
+    { url: '/products', title: 'products' },
     { url: '/#', title: 'blog' }
   ]
 }
