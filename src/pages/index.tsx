@@ -4,6 +4,7 @@ import type { NextPage } from 'next'
 
 import { getAllProducts, Products } from '@/lib/api'
 import { Hero, Jumbotron } from '@/components/home'
+import { Box, Container } from '@chakra-ui/react'
 
 const Home: NextPage = () => {
   // const [products, setProducts] = useState<Products[]>([])
@@ -23,7 +24,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Jumbotron />
-      <Hero />
+      <Container maxW="xl" centerContent>
+        <Hero />
+      </Container>
     </>
   )
 }

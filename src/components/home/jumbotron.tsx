@@ -11,7 +11,7 @@ const Jumbotron = () => {
       bgImage="linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);"
     >
       <Text color="black">
-        <Heading fontSize="6xl" lineHeight="1">
+        <Heading fontSize={['5xl', '6xl']} lineHeight="1">
           {siteConfig.title}
         </Heading>
         seduhan rasa yang sederhana

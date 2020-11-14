@@ -3,8 +3,8 @@ import { ChakraNextLink } from '../helpers'
 
 const Hero = () => {
   return (
-    <Stack py="10">
-      <SimpleGrid px="16" columns={[1, 2]} spacing="5">
+    <Stack py="10" w="100%">
+      <SimpleGrid px={[5, 20]} ml={[0, null, 28]} columns={[1, 1, 2]} spacing={[3, 8]}>
         <Image
           src="https://images.unsplash.com/photo-1502849394214-c4b6352145ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=362&q=80"
           w="100%"
