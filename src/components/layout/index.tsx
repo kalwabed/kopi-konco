@@ -1,4 +1,4 @@
-import { Stack, useColorMode } from '@chakra-ui/core'
+import { Stack, useColorMode } from '@chakra-ui/react'
 
 import { theme } from '@/utils'
 import Header from './header'

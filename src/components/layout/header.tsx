@@ -15,9 +15,10 @@ import {
   List,
   ListItem,
   ListIcon
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import Nextlink from 'next/link'
 import { CgMenu } from 'react-icons/cg'
+import { FiMinus, FiMoon, FiSun } from 'react-icons/fi'
 import { useRef, useState } from 'react'
 
 import { theme } from '@/utils'
@@ -68,7 +69,7 @@ const NavBar = ({ colorMode, toggle }) => {
           ))}
           <IconButton
             ml={[0, 3]}
-            icon={colorMode === 'light' ? 'moon' : 'sun'}
+            icon={colorMode === 'light' ? <FiMoon /> : <FiSun />}
             aria-label="Theme provider"
             onClick={toggle}
           />
@@ -85,7 +86,7 @@ const Menu = ({ colorMode, toggle }) => {
 
   return (
     <Box d={['block', 'none']} mr="2">
-      <IconButton icon={CgMenu} aria-label="Menu" ref={btnRef} variantColor="gray" onClick={onOpen} />
+      <IconButton icon={<CgMenu />} aria-label="Menu" ref={btnRef} colorScheme="gray" onClick={onOpen} />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
         <DrawerOverlay />
         <DrawerContent color={color[colorMode]}>
@@ -93,7 +94,7 @@ const Menu = ({ colorMode, toggle }) => {
           <DrawerHeader>
             <IconButton
               ml={[0, 3]}
-              icon={colorMode === 'light' ? 'moon' : 'sun'}
+              icon={colorMode === 'light' ? <FiMoon /> : <FiSun />}
               aria-label="Theme provider"
               onClick={toggle}
             />
@@ -103,7 +104,7 @@ const Menu = ({ colorMode, toggle }) => {
             <List>
               {siteConfig.routes.map(({ title, url }) => (
                 <ListItem mt="3" key={title}>
-                  <ListIcon icon="minus" />
+                  <ListIcon as={FiMinus} />
                   <NavLink href={url} title={title} />
                 </ListItem>
               ))}

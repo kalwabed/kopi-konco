@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Text } from '@chakra-ui/core'
+import { Heading, Stack, Text } from '@chakra-ui/react'
 
 import siteConfig from 'site-config'
 
@@ -10,12 +10,12 @@ const Jumbotron = () => {
       px={[5, 32]}
       bgImage="linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);"
     >
-      <Box color="black">
-        <Text>
-          <Heading fontSize={['4xl', '6xl']}>{siteConfig.title}</Heading>
-          menawarkan anda pengalaman kafe yang baru
-        </Text>
-      </Box>
+      <Text color="black">
+        <Heading fontSize="6xl" lineHeight="1">
+          {siteConfig.title}
+        </Heading>
+        seduhan rasa yang sederhana
+      </Text>
     </Stack>
   )
 }
