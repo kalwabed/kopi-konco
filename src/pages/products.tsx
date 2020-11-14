@@ -1,17 +1,29 @@
 import { Breadcrumb } from '@/components/helpers'
 import { Card } from '@/components/products'
-import { Box, Container, SimpleGrid, Stack } from '@chakra-ui/react'
+import { Box, SimpleGrid, Stack } from '@chakra-ui/react'
+import Head from 'next/head'
+import type { GetStaticProps, NextPage } from 'next'
 
-const Products = () => {
+import { getAllProducts, Products } from '@/lib/api'
+
+interface Props {
+  products: Products[]
+}
+
+const ProductsPage: NextPage<Props> = ({ products }) => {
   return (
     <Stack py="10" mx={[3, 20]}>
+      <Head>
+        <title>Products</title>
+      </Head>
+
       <Box mb="5">
         <Breadcrumb />
       </Box>
       <Stack>
         <SimpleGrid columns={[1, 2, 4]} spacing={5}>
-          {[1, 2, 3, 2].map(arr => (
-            <Card />
+          {products.map(prod => (
+            <Card key={prod.fields.slug} product={prod} />
           ))}
         </SimpleGrid>
       </Stack>
@@ -19,4 +31,13 @@ const Products = () => {
   )
 }
 
-export default Products
+export const getStaticProps: GetStaticProps = async () => {
+  const products = await getAllProducts()
+  return {
+    props: {
+      products
+    }
+  }
+}
+
+export default ProductsPage

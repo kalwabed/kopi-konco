@@ -1,8 +1,10 @@
-import { Box, Button, ButtonGroup, Flex, Heading, Img, Link, SimpleGrid, Text } from '@chakra-ui/react'
+import { Badge, Box, Button, Flex, Img, Link, Text } from '@chakra-ui/react'
 import NextLink from 'next/link'
-import { FiShoppingCart } from 'react-icons/fi'
+import Image from 'next/image'
+import { FiCoffee } from 'react-icons/fi'
+import { Products } from '@/lib/api'
 
-const Card = () => {
+const Card = ({ product }: { product: Products }) => {
   return (
     <Box
       maxW="sm"
@@ -12,27 +14,30 @@ const Card = () => {
       rounded="lg"
       _hover={{ borderColor: 'info', boxShadow: 'lg' }}
     >
-      <Img
-        src="https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-        w="full"
-      />
+      {/* <Image src={product.fields.coverImage.fields.file.url} height="320" width="500" /> */}
+      <Img src={product.fields.coverImage.fields.file.url} alt={product.fields.coverImage.fields.title} />
       <Box px="5" pt="2" pb="5">
-        <NextLink href="/">
-          <Link
-            colorScheme="primary"
-            fontWeight="bold"
-            fontSize="2xl"
-            href="/"
-            _hover={{ textDecor: 'underline' }}
-            _focus={{ border: 0 }}
-          >
-            Kalwabed Rizki
-          </Link>
-        </NextLink>
-        <Text color="gray.500">Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
+        <Flex align="center">
+          <Badge colorScheme="blue" mr="1">
+            BARU
+          </Badge>
+          <NextLink href="/">
+            <Link
+              colorScheme="primary"
+              fontWeight="bold"
+              fontSize="2xl"
+              href="/"
+              _hover={{ textDecor: 'underline' }}
+              _focus={{ border: 0 }}
+            >
+              {product.fields.name}
+            </Link>
+          </NextLink>
+        </Flex>
+        <Text color="gray.500">{product.fields.excerpt}</Text>
       </Box>
       <Box pt="1" px="5" pb="2">
-        <Button rightIcon={<FiShoppingCart />} isFullWidth colorScheme="primary" variant="solid">
+        <Button rightIcon={<FiCoffee />} isFullWidth colorScheme="primary" variant="solid">
           Pesan sekarang
         </Button>
       </Box>

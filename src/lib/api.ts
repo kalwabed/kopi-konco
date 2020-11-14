@@ -46,7 +46,9 @@ export interface Products {
     date: Date
     description: string
     name: string
+    excerpt: string
     slug: string
+    price: number
     chef: {
       fields: {
         name: string
