@@ -14,12 +14,13 @@ import {
   DrawerBody,
   List,
   ListItem,
-  ListIcon
+  ListIcon,
+  useColorModeValue
 } from '@chakra-ui/react'
 import Nextlink from 'next/link'
 import { CgMenu } from 'react-icons/cg'
 import { FiMinus, FiMoon, FiSun } from 'react-icons/fi'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 
 import { theme } from '@/utils'
 import siteConfig from 'site-config'
@@ -28,11 +29,12 @@ const color = { dark: 'white', light: theme.colors.dark }
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode()
+  const borderColor = useColorModeValue('primary.300', 'primary.600')
 
   return (
     <Stack
       borderBottom={['1px', '0']}
-      borderColor="gray.300"
+      borderColor={borderColor}
       as="header"
       px={['2', '5']}
       py="3"
