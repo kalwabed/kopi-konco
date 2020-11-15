@@ -17,9 +17,9 @@ const ProductsPage: NextPage<Props> = ({ products }) => {
         <title>Products</title>
       </Head>
 
-      <Box mb="5">
+      {/* <Box mb="5">
         <Breadcrumb />
-      </Box>
+      </Box> */}
       <Stack>
         <SimpleGrid columns={[1, 2, 4]} spacing={5}>
           {products.map(prod => (
