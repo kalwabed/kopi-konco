@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <Stack as="footer" bg="primary.700" color="white" py="8" px={[2, 5]}>
       <SimpleGrid columns={[1, 2]} gap={5} mx={[5, 10]}>
-        <Flex justify={['center', 'start']} align="center">
+        <Flex justify={['center', 'start']} align="center" textAlign={['center', 'start']}>
           <Box>
             <ChakraNextLink href="/" fontWeight="bold">
               {siteConfig.title}{' '}

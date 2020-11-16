@@ -45,18 +45,9 @@ const Card = ({ product }: { product: Products }) => {
       <Box px="5" pt="2" pb="5">
         <Flex align="center">
           <ProductCondition date={product.fields.date} />
-          <NextLink href="/">
-            <Link
-              colorScheme="primary"
-              fontWeight="bold"
-              fontSize="2xl"
-              href="/"
-              _hover={{ textDecor: 'underline' }}
-              _focus={{ border: 0 }}
-            >
-              {product.fields.name}
-            </Link>
-          </NextLink>
+          <Text colorScheme="primary" fontWeight="bold" fontSize="2xl">
+            {product.fields.name}
+          </Text>
         </Flex>
         <Text color="gray.500">{product.fields.excerpt}</Text>
       </Box>
