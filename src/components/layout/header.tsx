@@ -89,30 +89,31 @@ const Menu = ({ colorMode, toggle }) => {
   return (
     <Box d={['block', 'none']} mr="2">
       <IconButton icon={<CgMenu />} aria-label="Menu" ref={btnRef} colorScheme="gray" onClick={onOpen} />
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
-        <DrawerOverlay />
-        <DrawerContent color={color[colorMode]}>
-          <DrawerCloseButton />
-          <DrawerHeader>
-            <IconButton
-              ml={[0, 3]}
-              icon={colorMode === 'light' ? <FiMoon /> : <FiSun />}
-              aria-label="Theme provider"
-              onClick={toggle}
-            />
-          </DrawerHeader>
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef} size="xs">
+        <DrawerOverlay>
+          <DrawerContent color={color[colorMode]}>
+            <DrawerCloseButton />
+            <DrawerHeader>
+              <IconButton
+                ml={[0, 3]}
+                icon={colorMode === 'light' ? <FiMoon /> : <FiSun />}
+                aria-label="Theme provider"
+                onClick={toggle}
+              />
+            </DrawerHeader>
 
-          <DrawerBody>
-            <List>
-              {siteConfig.routes.map(({ title, url }) => (
-                <ListItem mt="3" key={title}>
-                  <ListIcon as={FiMinus} />
-                  <NavLink href={url} title={title} />
-                </ListItem>
-              ))}
-            </List>
-          </DrawerBody>
-        </DrawerContent>
+            <DrawerBody>
+              <List>
+                {siteConfig.routes.map(({ title, url }) => (
+                  <ListItem mt="3" key={title}>
+                    <ListIcon as={FiMinus} />
+                    <NavLink href={url} title={title} onClick={onClose} />
+                  </ListItem>
+                ))}
+              </List>
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
       </Drawer>
     </Box>
   )

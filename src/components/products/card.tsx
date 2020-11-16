@@ -1,7 +1,6 @@
-import { Badge, Box, Button, Flex, Link, Text } from '@chakra-ui/react'
+import { Badge, Box, Flex, Link, Text } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import Image from 'next/image'
-import { FiCoffee } from 'react-icons/fi'
 import { isYesterday, isToday } from 'date-fns'
 
 import { Products } from '@/lib/api'
@@ -46,25 +45,11 @@ const Card = ({ product }: { product: Products }) => {
       <Box px="5" pt="2" pb="5">
         <Flex align="center">
           <ProductCondition date={product.fields.date} />
-          <NextLink href="/">
-            <Link
-              colorScheme="primary"
-              fontWeight="bold"
-              fontSize="2xl"
-              href="/"
-              _hover={{ textDecor: 'underline' }}
-              _focus={{ border: 0 }}
-            >
-              {product.fields.name}
-            </Link>
-          </NextLink>
+          <Text colorScheme="primary" fontWeight="bold" fontSize="2xl">
+            {product.fields.name}
+          </Text>
         </Flex>
         <Text color="gray.500">{product.fields.excerpt}</Text>
-      </Box>
-      <Box pt="1" px="5" pb="2">
-        <Button rightIcon={<FiCoffee />} isFullWidth colorScheme="primary" variant="solid">
-          Pesan sekarang
-        </Button>
       </Box>
     </Box>
   )

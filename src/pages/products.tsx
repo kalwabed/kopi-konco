@@ -1,10 +1,11 @@
 import { Breadcrumb } from '@/components/helpers'
-import { Card } from '@/components/products'
-import { Box, SimpleGrid, Stack } from '@chakra-ui/react'
+import { Card, Order } from '@/components/products'
+import { Button, Flex, SimpleGrid, Stack } from '@chakra-ui/react'
 import Head from 'next/head'
 import type { GetStaticProps, NextPage } from 'next'
 
 import { getAllProducts, Products } from '@/lib/api'
+import { FiShoppingCart } from 'react-icons/fi'
 
 interface Props {
   products: Products[]
@@ -16,7 +17,6 @@ const ProductsPage: NextPage<Props> = ({ products }) => {
       <Head>
         <title>Products</title>
       </Head>
-
       {/* <Box mb="5">
         <Breadcrumb />
       </Box> */}
