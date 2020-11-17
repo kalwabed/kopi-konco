@@ -40,4 +40,7 @@ export interface Post {
       }
     }
   }
+  sys: {
+    id: string
+  }
 }

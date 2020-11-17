@@ -8,11 +8,11 @@ import NextLink from 'next/link'
 const Card = ({ post }: { post: Post }) => {
   return (
     <Box overflow="hidden" rounded="md" maxW="md" mx={[0, 10]} my={[3, 0]}>
-      <NextLink href="/">
+      <NextLink href={`/posts/${post.sys.id}`}>
         <Box _hover={{ cursor: 'pointer' }}>
           <Image src={`https:${post.fields.coverImage.fields.file.url}`} width={500} height={350} />
           <Heading>
-            <Link href={`/posts/${post.fields.slug}`}>{post.fields.title}</Link>
+            <Link href={`/posts/${post.sys.id}`}>{post.fields.title}</Link>
           </Heading>
         </Box>
       </NextLink>

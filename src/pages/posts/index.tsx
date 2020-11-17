@@ -11,7 +11,6 @@ interface Props {
 }
 
 const PostsPage: NextPage<Props> = ({ posts }) => {
-  console.log(posts)
   return (
     <Stack spacing={8}>
       <Banner />

@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/named
+import { Post } from '@/interface/posts'
+
 const client = require('contentful').createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
@@ -20,6 +23,16 @@ const getEntries = async () => {
   }
 }
 
+// eslint-disable-next-line consistent-return
+const getEntry = async (id: string) => {
+  try {
+    const entry = await client.getEntry(id)
+    return entry
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 const extract = (items, type: ContentType) => {
   return items.filter(item => item.sys.contentType.sys.id === type)
 }
@@ -33,4 +46,18 @@ export const getAllChefs = async () => {
 
 export const getAllPosts = async () => {
   return extract(await getEntries(), ContentType.post)
+}
+
+export const getAllPostsSlug = async () => {
+  const allPosts = (await getAllPosts()) as Post[]
+  return allPosts.map(p => ({
+    params: {
+      pid: p.sys.id
+    }
+  }))
+}
+
+export const getPost = async (sysId: string) => {
+  const post = await getEntry(sysId)
+  return post
 }
