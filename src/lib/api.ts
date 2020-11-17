@@ -1,8 +1,18 @@
+// eslint-disable-next-line import/named
+import { Post } from '@/interface/posts'
+
 const client = require('contentful').createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 })
 
+enum ContentType {
+  chef = 'chef',
+  product = 'product',
+  post = 'post'
+}
+
+// eslint-disable-next-line consistent-return
 const getEntries = async () => {
   try {
     const entries = await client.getEntries()
@@ -13,62 +23,41 @@ const getEntries = async () => {
   }
 }
 
-const extractChefs = items => {
-  return items.filter(item => item.sys.contentType.sys.id === 'chef')
+// eslint-disable-next-line consistent-return
+const getEntry = async (id: string) => {
+  try {
+    const entry = await client.getEntry(id)
+    return entry
+  } catch (err) {
+    console.error(err)
+  }
 }
 
-const extractProducts = items => {
-  return items.filter(item => item.sys.contentType.sys.id === 'product')
+const extract = (items, type: ContentType) => {
+  return items.filter(item => item.sys.contentType.sys.id === type)
 }
-
 export const getAllProducts = async () => {
-  return extractProducts(await getEntries())
+  return extract(await getEntries(), ContentType.product)
 }
 
 export const getAllChefs = async () => {
-  return extractChefs(await getEntries())
+  return extract(await getEntries(), ContentType.chef)
 }
 
-export interface Chef {
-  name: string
-  picture: {
-    fields: {
-      file: {
-        url: string
-      }
-      title: string
-    }
-  }
+export const getAllPosts = async () => {
+  return extract(await getEntries(), ContentType.post)
 }
 
-export interface Products {
-  fields: {
-    date: Date
-    description: string
-    name: string
-    excerpt: string
-    slug: string
-    price: number
-    chef: {
-      fields: {
-        name: string
-        picture: {
-          fields: {
-            file: {
-              url: string
-            }
-            title: string
-          }
-        }
-      }
+export const getAllPostsSlug = async () => {
+  const allPosts = (await getAllPosts()) as Post[]
+  return allPosts.map(p => ({
+    params: {
+      pid: p.sys.id
     }
-    coverImage: {
-      fields: {
-        file: {
-          url: string
-        }
-        title: string
-      }
-    }
-  }
+  }))
+}
+
+export const getPost = async (sysId: string) => {
+  const post = await getEntry(sysId)
+  return post
 }

@@ -4,6 +4,6 @@ export default {
     { url: '/', title: 'home' },
     { url: '/about', title: 'about' },
     { url: '/products', title: 'products' },
-    { url: '/#', title: 'blog' }
+    { url: '/posts', title: 'blog' }
   ]
 }
