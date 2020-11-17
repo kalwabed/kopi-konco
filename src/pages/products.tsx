@@ -3,12 +3,13 @@ import { Card, Order } from '@/components/products'
 import { Button, Flex, SimpleGrid, Stack } from '@chakra-ui/react'
 import Head from 'next/head'
 import type { GetStaticProps, NextPage } from 'next'
-
-import { getAllProducts, Products } from '@/lib/api'
 import { FiShoppingCart } from 'react-icons/fi'
 
+import { getAllProducts } from '@/lib/api'
+import { Product } from '@/interface/products'
+
 interface Props {
-  products: Products[]
+  products: Product[]
 }
 
 const ProductsPage: NextPage<Props> = ({ products }) => {

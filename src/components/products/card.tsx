@@ -3,7 +3,7 @@ import NextLink from 'next/link'
 import Image from 'next/image'
 import { isYesterday, isToday } from 'date-fns'
 
-import { Products } from '@/lib/api'
+import { Products } from '@/interface/products'
 
 const Card = ({ product }: { product: Products }) => {
   return (
