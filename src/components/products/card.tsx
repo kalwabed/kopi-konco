@@ -3,9 +3,9 @@ import NextLink from 'next/link'
 import Image from 'next/image'
 import { isYesterday, isToday } from 'date-fns'
 
-import { Products } from '@/interface/products'
+import { Product } from '@/interface/products'
 
-const Card = ({ product }: { product: Products }) => {
+const Card = ({ product }: { product: Product }) => {
   return (
     <Box
       maxW="sm"
