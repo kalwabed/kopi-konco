@@ -1,9 +1,10 @@
 /* eslint-disable import/named */
-import { Author, Post } from '@/interface/posts'
-import { Avatar, Box, Flex, Heading, Link, Text } from '@chakra-ui/react'
-import { format, formatDistance } from 'date-fns'
+import { Box, Heading, Link, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 import NextLink from 'next/link'
+
+import { DateTime, AuthorProfile } from '@/components/posts'
+import { Post } from '@/interface/posts'
 
 const Card = ({ post }: { post: Post }) => {
   return (
@@ -42,32 +43,6 @@ const Card = ({ post }: { post: Post }) => {
         <AuthorProfile author={post.fields.author} />
       </Box>
     </Box>
-  )
-}
-
-const AuthorProfile = ({ author }: { author: Author }) => {
-  return (
-    <Flex align="center">
-      <Box mt="2">
-        <Avatar src={`https:${author.fields.picture.fields.file.url}`} size="md" name={author.fields.name} />
-      </Box>
-      <Box ml="6">
-        <Text fontWeight="bold">{author.fields.name}</Text>
-        <Text fontSize="sm" fontWeight="light">
-          {author.fields.position}
-        </Text>
-      </Box>
-    </Flex>
-  )
-}
-
-const DateTime = ({ date }: { date: Date }) => {
-  const formatted = format(new Date(date), 'dd / MMM / yyy')
-  const distance = formatDistance(new Date(date), Date.now(), { addSuffix: true })
-  return (
-    <Text>
-      <time dateTime={formatted}>{formatted}</time> ~ {distance}
-    </Text>
   )
 }
 
