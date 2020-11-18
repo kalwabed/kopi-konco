@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^1.0.0",
+    "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@contentful/rich-text-types": "^14.1.2",
     "@emotion/css": "^11.0.0",
     "@emotion/react": "^11.0.0",
     "@emotion/server": "^11.0.0",
