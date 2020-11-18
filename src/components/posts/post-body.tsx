@@ -7,7 +7,6 @@ interface Props {
 }
 
 const PostBody = ({ content }: Props) => {
-  console.log(content)
   const options = {
     renderMark: {
       [MARKS.BOLD]: txt => (
