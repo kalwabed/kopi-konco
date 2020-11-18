@@ -4,14 +4,30 @@ import React from 'react'
 import { getPost, getAllPostsSlug } from '@/lib/api'
 // eslint-disable-next-line import/named
 import { Post } from '@/interface/posts'
-import { Heading } from '@chakra-ui/react'
+import { PostHead, PostBody } from '@/components/posts'
+import { Stack } from '@chakra-ui/react'
 
 interface Props {
   post: Post
 }
 
 const PostArticle: NextPage<Props> = ({ post }) => {
-  return <Heading>{post.fields.slug}</Heading>
+  return (
+    <>
+      <Stack>
+        <PostHead
+          coverImage={post.fields.coverImage.fields.file.url}
+          title={post.fields.title}
+          date={post.fields.date}
+          excerpt={post.fields.excerpt}
+          author={post.fields.author}
+        />
+      </Stack>
+      <Stack>
+        <PostBody content={post.fields.content.content[0]} />
+      </Stack>
+    </>
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
