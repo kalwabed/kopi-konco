@@ -34,7 +34,7 @@ const PostBody = ({ content }: Props) => {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => <Text as="article">{children}</Text>,
       [BLOCKS.EMBEDDED_ASSET]: node => (
-        <Box>
+        <Box my={[3, 5]}>
           <Img
             src={`https:${node.data.target.fields.file.url}`}
             rounded="md"
