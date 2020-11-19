@@ -18,8 +18,8 @@ const customColors = {
 }
 
 const fonts = {
-  body: '"Inter", sans-serif',
-  heading: '"Inter", sans-serif',
+  body:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif',
   mono: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, monospace'
 }
 

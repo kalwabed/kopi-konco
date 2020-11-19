@@ -12,7 +12,7 @@ const Hero = () => {
             alt="https://images.unsplash.com/photo-1597489276061-bc12248f4544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"
             height={500}
             width={500}
-            src="https://images.unsplash.com/photo-1597489276061-bc12248f4544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"
+            src="https://images.unsplash.com/photo-1597489276061-bc12248f4544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
           />
         </Box>
         <Box>
