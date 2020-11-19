@@ -48,8 +48,8 @@ const Header = () => {
 }
 
 const NavLink = ({ title = '', href = '/', ...rest }) => (
-  <Nextlink href={href}>
-    <Link fontSize="lg" href={href} p={5} _hover={{ color: 'gray.500' }} {...rest}>
+  <Nextlink href={href} passHref>
+    <Link fontSize="lg" p={5} _hover={{ color: 'gray.500' }} {...rest}>
       {title}
     </Link>
   </Nextlink>
