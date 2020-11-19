@@ -1,5 +1,4 @@
-import { Badge, Box, Flex, Link, Text } from '@chakra-ui/react'
-import NextLink from 'next/link'
+import { Badge, Box, Flex, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 import { isYesterday, isToday } from 'date-fns'
 
@@ -19,8 +18,8 @@ const Card = ({ product }: { product: Product }) => {
       <Box>
         <Image
           src={`https:${product.fields.coverImage.fields.file.url}`}
-          height="320"
-          width="500"
+          height={320}
+          width={500}
           alt={product.fields.coverImage.fields.title}
         />
       </Box>

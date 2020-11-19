@@ -1,8 +1,7 @@
-import { Box, SimpleGrid, Img, Stack, Text, Heading, Button, IconButton } from '@chakra-ui/react'
+import { Box, SimpleGrid, Stack, Text, Heading, Button } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi'
-import { ChakraNextLink } from '../helpers'
 
 const Hero = () => {
   return (
@@ -11,9 +10,8 @@ const Hero = () => {
         <Box rounded="lg">
           <Image
             alt="https://images.unsplash.com/photo-1597489276061-bc12248f4544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"
-            height="500%"
-            width="500%"
-            quality="100"
+            height={500}
+            width={500}
             src="https://images.unsplash.com/photo-1597489276061-bc12248f4544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"
           />
         </Box>

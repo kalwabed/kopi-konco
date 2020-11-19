@@ -5,6 +5,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import { Banner, Card } from '@/components/posts'
 import { getAllPosts } from '@/lib/api'
 import { Post } from '@/interface/posts'
+import Head from 'next/head'
 
 interface Props {
   posts: Post[]
@@ -13,6 +14,9 @@ interface Props {
 const PostsPage: NextPage<Props> = ({ posts }) => {
   return (
     <Stack spacing={8}>
+      <Head>
+        <title>Posts</title>
+      </Head>
       <Banner />
       <Stack px={[5, 20]}>
         <Box mx="auto">

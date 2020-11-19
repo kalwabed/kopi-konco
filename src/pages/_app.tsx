@@ -1,19 +1,37 @@
 import type { AppProps } from 'next/app'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import NProgress from 'nprogress'
-import theme from '@/utils/theme'
+import { NextSeo } from 'next-seo'
 
+import theme from '@/utils/theme'
 import { AppProvider } from '@/components/helpers'
 import Layout from '@/components/layout'
+// eslint-disable-next-line import/no-named-as-default-member
+import siteConfig from 'site-config'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const route = useRouter()
+  const url = siteConfig.baseUrl + route.asPath
   return (
     <AppProvider>
       <Layout>
+        <NextSeo
+          title={siteConfig.title}
+          description={siteConfig.description}
+          canonical={url}
+          openGraph={{
+            url,
+            title: siteConfig.title,
+            site_name: `${siteConfig.title} Website`,
+            type: 'website',
+            description: siteConfig.description
+          }}
+          twitter={{ cardType: 'summary_large_image', handle: '@kalwabed_rizki', site: siteConfig.baseUrl }}
+        />
         <Component {...pageProps} />
       </Layout>
       <style jsx global>{`
