@@ -1,9 +1,14 @@
-import { Container, Text } from '@chakra-ui/react'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
+import { Box, Container, Img, Text } from '@chakra-ui/react'
+import {
+  documentToReactComponents,
+  RenderMark,
+  RenderNode,
+  Options
+} from '@contentful/rich-text-react-renderer'
+import { BLOCKS, MARKS, Document } from '@contentful/rich-text-types'
 
 interface Props {
-  content: any
+  content: Document & any
 }
 
 const PostBody = ({ content }: Props) => {
@@ -25,15 +30,25 @@ const PostBody = ({ content }: Props) => {
           {txt}
         </Text>
       )
-    },
+    } as RenderMark,
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <Text as="article">{children}</Text>
-    }
-  }
+      [BLOCKS.PARAGRAPH]: (node, children) => <Text as="article">{children}</Text>,
+      [BLOCKS.EMBEDDED_ASSET]: node => (
+        <Box>
+          <Img
+            src={`https:${node.data.target.fields.file.url}`}
+            rounded="md"
+            objectPosition="center"
+            objectFit="cover"
+          />
+        </Box>
+      )
+    } as RenderNode
+  } as Options
 
   return (
     <Container my={4} maxW="md">
-      {documentToReactComponents(content, options)}
+      {content.map(c => documentToReactComponents(c, options))}
     </Container>
   )
 }

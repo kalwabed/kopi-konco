@@ -24,7 +24,7 @@ const PostArticle: NextPage<Props> = ({ post }) => {
         />
       </Stack>
       <Stack>
-        <PostBody content={post.fields.content.content[0]} />
+        <PostBody content={post.fields.content.content} />
       </Stack>
     </>
   )
